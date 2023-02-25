@@ -230,5 +230,13 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
+  var date1 = new Date("11/18/1992");
+    var date2 = new Date();
+   
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+
+    var Difference_In_Days = parseInt(Difference_In_Time / (1000 * 3600 * 24));
+	var days = document.getElementById("days");
+	days.setAttribute("data-purecounter-end", Difference_In_Days);
 
 })()
