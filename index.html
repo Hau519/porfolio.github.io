@@ -4,21 +4,138 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
     <title>Hau Vu</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
-
     <link href="assets/img/favicon.jpg" rel="icon">
-
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
     <link href="assets/css/style.css" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNPMC7LZVT"></script>
+    <style>
+        .hero {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            /*color: #CCC;*/
+            position: relative;
+            text-transform: uppercase;
+            font-family: 'Amatic SC', sans-serif;
+            letter-spacing: 17.5px;
+        }
+
+        .hero-one, .hero-two {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 1;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            letter-spacing: 1px;
+            color: #3b3939;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 1em;
+            background-color: white;
+            display: none;
+            opacity: 0;
+            transition: all 5s ease;
+        }
+
+        .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /*display: hidden;*/
+        }
+
+        .hero-one {
+            background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/img/dall2-1.png');
+        }
+
+        .hero-two {
+            right: 0;
+            background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .5)), url('assets/img/dall2-2.png');
+        }
+
+        .hero-one:hover, .hero-two:hover {
+            background-image: inherit;
+        }
+
+
+        .hero-one:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('assets/img/dall2-1.png');
+
+        }
+
+        .hero-two:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('assets/img/dall2-2.png');
+        }
+
+        .hero-one:hover .hero-text,
+        .hero-two:hover .hero-text {
+            opacity: 1;
+            display: block;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .hero-one .hero-text:hover {
+            background-color: #fedc98;
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        .hero-two .hero-text:hover {
+            background-color: #008799;
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+
+        @media only screen
+        and (max-width: 1300px) {
+            .hero-one {
+                top: 0;
+                position: absolute;
+                width: 50%;
+                background-color: #008799;
+                height: 100vh;
+                z-index: 1;
+                background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('assets/img/dall2-1.png');
+                background-size: contain; /* Changed from cover to contain */
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+
+            .hero-two {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 50%;
+                background-color: #fedc98;
+                height: 100vh;
+                background-image: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .5)), url('assets/img/dall2-2.png');
+                background-size: contain; /* Changed from cover to contain */
+                background-repeat: no-repeat;
+                background-position: center center; /* Ensures the image is centered */
+                z-index: 1;
+            }
+        }
+
+    </style>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -42,581 +159,104 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About Me</a></li>
-                <li><a class="nav-link scrollto" href="#services">Skills</a></li>
-                <li><a class="nav-link scrollto " href="#work">Portfolio</a></li>
-                <li><a class="nav-link scrollto " href="#blog">Education</a></li>
-                <li class="dropdown"><a href="https://hauvu1992.w3spaces.com/"><span>My blog</span> <i
-                        class="bi bi-chevron-down"></i></a>
-
-                </li>
-
+                <li><a class="nav-link" href="#hero" id="language-toggle">Tiếng Việt</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+        </nav>
+
 
     </div>
 </header><!-- End Header -->
+<div id="hero" class="hero route bg-image">
+<!--    <video autoplay muted loop class="hiding video">-->
+<!--        <source src="assets/img/v1.mp4" type="video/mp4">-->
+<!--        Your browser does not support the video tag.-->
+<!--    </video>-->
 
-<!-- ======= Hero Section ======= -->
-<div id="hero" class="hero route bg-image" style="background-image: url(assets/img/me.jpg)">
-    <div class="overlay-itro"></div>
-    <div class="hero-content display-table">
-        <div class="table-cell">
-            <div class="container">
-                <!--<p class="display-6 color-d">Hello, world!</p>-->
-                <h1 class="hero-title mb-4">I am Hau Vu</h1>
-                <p class="hero-subtitle"><span class="typed"
-                                               data-typed-items="A dedicated software developer and data analyst... "></span>
-                </p>
-
-            </div>
-        </div>
+    <div class="hero-one">
+        <a href="index_professional.html">
+            <div class="hero-text" id="text-one">My professional space</div>
+        </a>
     </div>
-</div><!-- End Hero Section -->
-
-<main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about-mf sect-pt4 route">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="box-shadow-full">
-                        <div class="row">
-                            <div class="col-md-2" style="padding-right: -12px">
-
-                                <div class="skill-mf m-2 align-content-end" >
-                                    <br>
-                                    <img src="assets/img/Subject.png" class="img-fluid rounded b-shadow-a" alt="" width="200wv" >
-                                </div>
-                            </div>
-                            <div class="col-md-10" >
-                                <div class="about-me pt-4 pt-md-0">
-                                    <div class="title-box-2">
-                                        <h5 class="title-left">
-                                            About me
-                                        </h5>
-                                    </div>
-
-                                    <p><span class="title-s">Contact: </span> <span>hau.katolik@gmail.com</span></p>
-
-                                    <p class="lead">
-                                        With a finance background from working in an investment bank and holding a
-                                        master's degree in European business from Switzerland, plus a CSC certificate
-                                        from Canada, I've transitioned into tech with programming and data analysis
-                                        studies at Lasalle College. Now, as a full-stack developer and data analyst, I
-                                        combine my passion for technology with a keen analytical mind to solve complex
-                                        problems.
-                                    </p>
-                                </div>
-                            </div>
+    <div class="hero-two">
+        <a href="index_personal.html">
+            <div class="hero-text" id="text-two">My personal space</div>
+        </a>
+    </div>
+</div>
 
 
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
-        <div class="overlay-mf"></div>
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-sm-3 col-lg-3">
-                    <div class="counter-box counter-box pt-4 pt-md-0">
-                        <div class="counter-ico">
-                            <span class="ico-circle"><i class="bi bi-house-heart"></i></span>
-                        </div>
-                        <div class="counter-num">
-                            <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1"
-                               class="counter purecounter"></p>
-                            <span class="counter-text">Countries of living</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-lg-3">
-                    <div class="counter-box pt-4 pt-md-0">
-                        <div class="counter-ico">
-                            <span class="ico-circle"><i class="bi bi-bank"></i></span>
-                        </div>
-                        <div class="counter-num">
-                            <p data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"
-                               class="counter purecounter"></p>
-                            <span class="counter-text">University/college</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-lg-3">
-                    <div class="counter-box pt-4 pt-md-0">
-                        <div class="counter-ico">
-                            <span class="ico-circle"><i class="bi bi-people"></i></span>
-                        </div>
-                        <div class="counter-num">
-                            <p data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1"
-                               class="counter purecounter"></p>
-                            <span class="counter-text">Company</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-lg-3">
-                    <div class="counter-box pt-4 pt-md-0">
-                        <div class="counter-ico">
-                            <span class="ico-circle"><i class="bi bi-calendar-heart"></i></span>
-                        </div>
-                        <div class="counter-num">
-                            <p data-purecounter-start="0" data-purecounter-end="11054" data-purecounter-duration="1"
-                               class="counter purecounter" id="days"></p>
-                            <span class="counter-text">Days of living</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- End Counter Section -->
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services-mf pt-5 route">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="title-box text-center">
-                        <h3 class="title-a">
-                            Skills
-                        </h3>
-                        <p class="subtitle-a">
-
-                        </p>
-                        <div class="line-mf"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-6">
-                    <div class="service-box">
-                        <div class="service-ico">
-                            <span class="ico-circle"><i class="bi bi-code-slash"></i></span>
-                        </div>
-                        <div class="service-content">
-                            <h2 class="s-title">Backend Development</h2>
-                            <p class="s-description text-center">
-                                Specializing in Python and Django to build powerful backend systems. Expert in creating
-                                APIs and server-side logic to drive web applications, ensuring scalability and
-                                performance.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="service-box">
-                        <div class="service-ico">
-                            <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
-                        </div>
-                        <div class="service-content">
-                            <h2 class="s-title">Data Analysis</h2>
-                            <p class="s-description text-center">
-                                Proficient in Pandas, SQL, and PowerBI, offering deep insights from data to inform
-                                strategic decisions. Skilled in transforming complex datasets into actionable
-                                intelligence.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="service-box">
-                        <div class="service-ico">
-                            <span class="ico-circle"><i class="bi bi-laptop"></i></span>
-                        </div>
-                        <div class="service-content">
-                            <h2 class="s-title">Frontend Development</h2>
-                            <p class="s-description text-center">
-                                Crafting engaging user experiences with HTML, CSS, and JavaScript. Focused on responsive
-                                design and user-centric interfaces for web applications.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<div id="preloader"></div>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/typed.js/typed.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+    let textOne = document.getElementById('text-one');
+    let textTwo = document.getElementById('text-two');
+    let video = document.querySelector('.video');
+    document.querySelector('.hero-one').addEventListener('mouseenter', function () {
+        // setTimeout(function () {
+        //     video.classList.remove('hiding');
+        // }, 1000);
 
 
-                <div class="col-md-6">
-                    <div class="service-box">
-                        <div class="service-ico">
-                            <span class="ico-circle"><i class="bi bi-brain"></i></span>
-                        </div>
-                        <div class="service-content">
-                            <h2 class="s-title">OpenAI/LangChain/Prompt Engineering</h2>
-                            <p class="s-description text-center">
-                                Leveraging the power of OpenAI and LangChain for prompt engineering
-                                solutions. Skilled in designing prompts that optimize AI performance for diverse
-                                applications.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    });
 
-            </div>
-        </div>
-    </section><!-- End Services Section -->
+    // document.querySelector('.textTwo').addEventListener('mouseenter', function () {
+    //     changeText("Discover");
+    // });
+    //
+    // function changeText(newText) {
+    //     var typedElement = document.querySelector('#dynamic-text');
+    //     if (typedElement.typed) {
+    //         typedElement.typed.destroy();
+    //     }
+    //     typedElement.textContent = newText; // Change text immediately
+    //     // Reinitialize Typed.js if you want to animate the text change
+    //     typedElement.typed = new Typed('#dynamic-text', {
+    //         strings: [newText],
+    //         typeSpeed: 50
+    //     });
+    // }
 
-    <!-- ======= Testimonials Section ======= -->
-<!--    <section id="testimonials" class="testimonials section-bg">-->
-<!--        <div class="container">-->
+    document.addEventListener('DOMContentLoaded', function () {
+        var languageToggle = document.getElementById('language-toggle');
 
-<!--            <div class="section-title">-->
-<!--                <h2>Certificates</h2>-->
-<!--            </div>-->
+        var texts = {
+            'en': {
+                'one': 'My professional space',
+                'two': 'My personal space',
+                'toggleText': 'Tiếng Việt'
+            },
+            'vi': {
+                'one': 'Công việc học hành vất vả ',
+                'two': 'Đời sống tình yêu hôn nhân gia đình',
+                'toggleText': 'English'
+            }
+        };
 
-<!--            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">-->
-<!--                <div class="swiper-wrapper">-->
+        var currentLanguage = 'en'; // Default language
 
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert1.png" class="testimonial-img" alt="">-->
-<!--                            <h3>Saul Goodman</h3>-->
-<!--                            <h4>Ceo &amp; Founder</h4>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert2.png" class="testimonial-img" alt="">-->
-<!--                            <h3>Sara Wilsson</h3>-->
-<!--                            <h4>Designer</h4>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert3.jpg" class="testimonial-img" alt="">-->
-<!--                            <h3>Jena Karlis</h3>-->
-<!--                            <h4>Store Owner</h4>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert4.jpg" class="testimonial-img" alt="">-->
-<!--                            <h3>Matt Brandon</h3>-->
-<!--                            <h4>Freelancer</h4>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert5.jpg" class="testimonial-img" alt="">-->
-<!--                            <h3>John Larson</h3>-->
-<!--                            <h4>Entrepreneur</h4>-->
-<!--                        </div>-->
-<!--                    </div>&lt;!&ndash; End testimonial item &ndash;&gt;-->
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert6.jpg" class="testimonial-img" alt="">-->
-<!--                            <h3>John Larson</h3>-->
-<!--                            <h4>Entrepreneur</h4>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="swiper-slide">-->
-<!--                        <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">-->
-<!--                            <p>-->
-<!--                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>-->
-<!--                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.-->
-<!--                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>-->
-<!--                            </p>-->
-<!--                            <img src="assets/img/cert7.jpg" class="testimonial-img" alt="">-->
-<!--                            <h3>John Larson</h3>-->
-<!--                            <h4>Entrepreneur</h4>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--                <div class="swiper-pagination"></div>-->
-<!--            </div>-->
-
-<!--        </div>-->
-<!--    </section>-->
+        languageToggle.addEventListener('click', function (event) {
+            event.preventDefault();
 
 
+            setTimeout(function () {
+                textOne.textContent = texts[currentLanguage].one;
+                textTwo.textContent = texts[currentLanguage].two;
+                languageToggle.textContent = texts[currentLanguage].toggleText;
+            }, 500);
+
+            currentLanguage = currentLanguage === 'en' ? 'vi' : 'en';
+        });
+    });
 
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="work" class="portfolio-mf sect-pt4 route">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="title-box text-center">
-                        <h3 class="title-a">
-                            Portfolio
-                        </h3>
-                        <p class="subtitle-a">
-                            All of my projects
-                        </p>
-                        <div class="line-mf"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="work-box">
-                        <a href="assets/img/taska.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                            <div class="work-img">
-                                <img src="assets/img/taska.png" alt="" class="img-fluid">
-                            </div>
-                        </a>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Task Manager - Python Flask</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">IOS app</span> / <span class="w-date">Oct. 2022</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <a href="https://testflight.apple.com/join/coLcuybB"> <span
-                                                class="bi bi-plus-circle"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="work-box">
-                        <a href="https://www.youtube.com/watch?v=5s-66tpIeSU" data-gallery="portfolioGallery"
-                           class="portfolio-lightbox">
-                            <div class="work-img">
-                                <img src="assets/img/header2.jpg" alt="" class="img-fluid">
-                            </div>
-                        </a>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Farm Fesh - Java/JSP/Servlet</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">E-commerce website</span> / <span class="w-date">Dec. 2022</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <a href="#"> <span class="bi bi-plus-circle"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="work-box">
-                        <a href="assets/img/bank.png" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                            <div class="work-img">
-                                <img src="assets/img/bank.png" alt="" class="img-fluid">
-                            </div>
-                        </a>
-                        <div class="work-content">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <h2 class="w-title">Online banking - C# Entity</h2>
-                                    <div class="w-more">
-                                        <span class="w-ctegory">Windows form</span> / <span
-                                            class="w-date">Dec. 2022</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="w-like">
-                                        <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- ======= Blog Section ======= -->
-                <section id="blog" class="blog-mf sect-pt4 route">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="title-box text-center">
-                                    <h3 class="title-a">
-                                        Education
-                                    </h3>
-                                    <p class="subtitle-a">
-
-                                    </p>
-                                    <div class="line-mf"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-blog">
-                                    <div class="card-img">
-                                        <a href="blog-single.html"><img src="assets/img/post-5.jpg" alt=""
-                                                                        class="img-fluid"></a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-category-box">
-                                            <div class="card-category">
-                                                <h6 class="category">Bachelor</h6>
-                                            </div>
-                                        </div>
-                                        <h3 class="card-title"><a href="blog-single.html">Banking university of Ho Chi
-                                            Minh city</a></h3>
-                                        <p class="card-description">
-                                            Banking and Finance
-
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="post-author">
-                                            <a href="#">
-                                                <img src="assets/img/testimonial-4.jpg" alt=""
-                                                     class="avatar rounded-circle">
-                                                <span class="author">2010-2014</span>
-                                            </a>
-                                        </div>
-                                        <!--<div class="post-date">
-                                          <span class="bi bi-clock"></span> 10 min
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-blog">
-                                    <div class="card-img">
-                                        <a href="blog-single.html"><img src="assets/img/fribourg.jpg" alt=""
-                                                                        class="img-fluid"></a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-category-box">
-                                            <div class="card-category">
-                                                <h6 class="category">Master</h6>
-                                            </div>
-                                        </div>
-                                        <h3 class="card-title"><a href="blog-single.html">University of Fribourg -
-                                            Switzerland</a></h3>
-                                        <p class="card-description">
-                                            European business
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="post-author">
-                                            <a href="#">
-                                                <img src="assets/img/testimonial-4.jpg" alt=""
-                                                     class="avatar rounded-circle">
-                                                <span class="author">2016-2018</span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-blog">
-                                    <div class="card-img">
-                                        <a href="blog-single.html"><img src="assets/img/post-10.jpg" alt=""
-                                                                        class="img-fluid"></a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-category-box">
-                                            <div class="card-category">
-                                                <h6 class="category">AEC</h6>
-                                            </div>
-                                        </div>
-                                        <h3 class="card-title"><a href="blog-single.html">Lasalle College - Montreal</a>
-                                        </h3>
-                                        <p class="card-description">
-                                            Information technology programmer-analyst
-
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="post-author">
-                                            <a href="#">
-                                                <img src="assets/img/testimonial-4.jpg" alt=""
-                                                     class="avatar rounded-circle">
-                                                <span class="author">2022-2023 </span>
-                                            </a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-
-            <br>
-
-
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="lci">
-                                <img src="assets/img/footer19.png" id="logo" width="200px">
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-        </footer>
-
-        <div id="preloader"></div>
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
-
-        <!-- Vendor JS Files -->
-        <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="assets/vendor/typed.js/typed.min.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
-
-        <!-- Template Main JS File -->
-        <script src="assets/js/main.js"></script>
+</script>
 
 </body>
 
